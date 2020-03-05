@@ -129,7 +129,7 @@ export const addMeetClickListener = ({ courses }, onClick) => {
     return removeListeners;
 }
 
-export const updateView = ({ courses, selectPick }) => {
+export const updateView = ({ courses, selectPick } : { courses: ICourse[], selectPick: eSelectPick }) => {
     const tableElm = document.querySelector('table#ContentPlaceHolder1_matrixA_gvMatrixPeriodSchedule');
     if (selectPick === eSelectPick.all) {
         tableElm.classList.remove('uv-multi-select');
@@ -148,4 +148,9 @@ export const updateView = ({ courses, selectPick }) => {
             });
         });
     });
+
+    const isAllSelected = courses.every(course => course.meets.every(meet=> meet.export));
+
+    const clearBtn = <HTMLButtonElement>document.querySelector('.uv-container .clearBtn');
+    clearBtn.innerText = isAllSelected ? 'בטל הכל' : 'בחר הכל';
 }

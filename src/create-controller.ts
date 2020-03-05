@@ -9,13 +9,12 @@ export const createController = ({ selectPick: defaultSelectPick, }, { onCreateI
     container.id = CONTAINER_ID;
     container.classList.add('uv-container');
     container.innerHTML = `
+    <h4 class="uv-shameless-plug">
+        עקבו אחריי ב-<a href="https://github.com/unimonkiez"><img width="24px" src="${chrome.extension.getURL("github.svg")}" /></a>
+    </h4>
     <h3>
         ייצוא מערכת השעות ליומן ע"י יובל
     </h3>
-    <h4>
-        עקבו אחריי ב-<a href="https://github.com/unimonkiez"><img width="24px" src="${chrome.extension.getURL("github.svg")}" /></a>
-    </h4>
-
     <form>
         <div class="uv-field">
             <label>
@@ -34,7 +33,7 @@ export const createController = ({ selectPick: defaultSelectPick, }, { onCreateI
                     ${getValues(eSelectPick).map(selectPick => (`<option ${selectPick === defaultSelectPick ? 'selected' : ''} value="${selectPick}">${eSelectPickText[selectPick]}</option>`)).join('')}
                 </select>
             </label>
-            <button type="button" class="clearBtn ${defaultSelectPick === eSelectPick.all ? 'hide' : ''}">בטל / בחר הכל</button>
+            <button type="button" class="clearBtn ${defaultSelectPick === eSelectPick.all ? 'hide' : ''}" />
         </div>
         <div class="uv-field">
             <button type="submit">ייצוא</button>
