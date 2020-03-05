@@ -22,7 +22,7 @@ if (!document.querySelector(`#${CONTAINER_ID}`)) {
             onCreateIcs: () => {
                 createIcs({
                     courses: data.courses,
-                    getEndSemesterDate: controller.getEndSemesterDate,
+                    untilDate: controller.getEndSemesterDate(),
                 });
             },
             onOpenGoogleSettings: () => {

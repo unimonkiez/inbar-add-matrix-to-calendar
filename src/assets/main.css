@@ -9,6 +9,12 @@
 .clearBtn.hide {
     display: none;
 }
-.uv-multi-select .uv-select {
-    background-color: rgba(30, 165, 41, 0.4);
+.uv-cell {
+    padding: 0!important;
+}
+.uv-course {
+    padding: 5px;
+}
+.uv-multi-select .uv-selected {
+    background-color: rgb(78, 255, 92);
 }

@@ -5,14 +5,13 @@ import { getEventName } from './get-event-name';
 interface ICreateIcs {
     (params: {
         courses: ICourse[];
-        getEndSemesterDate: () => Date;
+        untilDate: Date;
     }): void;
 }
 
-export const createIcs : ICreateIcs = ({ courses , getEndSemesterDate }) => {
+export const createIcs : ICreateIcs = ({ courses , untilDate }) => {
     var cal = ics();
     const now = new Date();
-    const untilDate = getEndSemesterDate();
     courses.forEach(course => {
         course.meets
             .filter(meet => meet.export)

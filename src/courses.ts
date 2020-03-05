@@ -141,9 +141,9 @@ export const updateView = ({ courses, selectPick }) => {
         course.meets.forEach(meet => {
             meet.elements.forEach(element => {
                 if (meet.export) {
-                    element.classList.add('uv-select');
+                    element.classList.add('uv-selected');
                 } else {
-                    element.classList.remove('uv-select');
+                    element.classList.remove('uv-selected');
                 }
             });
         });
