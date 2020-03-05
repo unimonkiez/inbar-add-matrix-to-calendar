@@ -7,7 +7,7 @@
     "icons": {
        "48": "icon/128.png"
     },
-    "web_accessible_resources": ["main.css"],
+    "web_accessible_resources": ["github.svg"],
     "content_scripts": [
         {
             "matches": ["https://inbar.biu.ac.il/Live/StudentMatrixPeriodSchedule.aspx"],

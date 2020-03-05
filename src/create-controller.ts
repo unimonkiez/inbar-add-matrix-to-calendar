@@ -1,3 +1,4 @@
+/// <reference types="chrome"/>
 import { CONTAINER_ID } from './constants';
 import { eSelectPick, eSelectPickText } from './enums';
 import { getEstimatedEndSemesterDate } from './get-estimated-end-semester-date';
@@ -11,8 +12,12 @@ export const createController = ({ selectPick: defaultSelectPick, }, { onCreateI
     <h3>
         ייצוא מערכת השעות ליומן ע"י יובל
     </h3>
-    <form method="get">
-        <div>
+    <h4>
+        עקבו אחריי ב-<a href="https://github.com/unimonkiez"><img width="24px" src="${chrome.extension.getURL("github.svg")}" /></a>
+    </h4>
+
+    <form>
+        <div class="uv-field">
             <label>
                 <span>
                     תאריך סוף סמסטר: 
@@ -20,7 +25,7 @@ export const createController = ({ selectPick: defaultSelectPick, }, { onCreateI
                 <input type="date">
             </label>
         </div>
-        <div>
+        <div class="uv-field">
             <label>
                 <span>
                     סוג ייצוא: 
@@ -31,7 +36,7 @@ export const createController = ({ selectPick: defaultSelectPick, }, { onCreateI
             </label>
             <button type="button" class="clearBtn ${defaultSelectPick === eSelectPick.all ? 'hide' : ''}">בטל / בחר הכל</button>
         </div>
-        <div>
+        <div class="uv-field">
             <button type="submit">ייצוא</button>
             <button type="button" class="google">לעמוד ייבוא בgoogle calendar</button>
         </div>

@@ -3,7 +3,10 @@
     border-radius: 16px;
     background-color: rgba(0, 0, 0, 0.05);
 }
-.uv-container h3 {
+.uv-container .uv-field {
+    padding: 8px 0px;
+}
+.uv-container h3, .uv-container h4 {
     margin-top: 2px;
 }
 .clearBtn.hide {
