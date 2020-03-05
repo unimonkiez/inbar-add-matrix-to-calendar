@@ -2,7 +2,7 @@
 
 # ייצוא מאינבר ליומן
 ### שימוש
-1. להתקין את התוסף לכרום [כאן](fff).
+1. להתקין את [התוסף לכרום כאן](https://chrome.google.com/webstore/detail/inbar-add-to-calendar/gmgopagabnnniohnbaaehjghlleaembc/related?authuser=4&hl=en).
     * ניתן להחביא את התוסף ע"י לחיצה על hide, אין בו שימוש מהתפריט הזה.  
     ![](md-images/2020-03-05-10-13-45.png)  
 2. להיכנס למטריצה באינבר.  
@@ -38,7 +38,7 @@ Run `yarn` in terminal
 * `yarn build:watch` - builds `dist` folder and watching for changes.
 
 ### Pull requests
-Are very welcome, make sure build passes and code is formatted.
+Are very welcome, make sure the build passes and the code is formatted.
 
 
 
