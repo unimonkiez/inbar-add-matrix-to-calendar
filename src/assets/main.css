@@ -1,0 +1,14 @@
+.uv-container {
+    padding: 24px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.uv-container h3 {
+    margin-top: 2px;
+}
+.clearBtn.hide {
+    display: none;
+}
+.uv-multi-select .uv-select {
+    background-color: rgba(30, 165, 41, 0.4);
+}
