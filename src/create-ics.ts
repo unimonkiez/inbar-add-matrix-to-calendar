@@ -30,7 +30,7 @@ export const createIcs : ICreateIcs = ({ courses , untilDate }) => {
                 endDate.setSeconds(0);
                 endDate.setMinutes(0);
                 endDate.setHours(meet.endTime);
-                cal.addEvent(getEventName(course, meet), meet.lecturers, meet.location, beginDate, endDate, {
+                cal.addEvent(getEventName(course, meet), meet.details, meet.location, beginDate, endDate, {
                     freq: 'WEEKLY',
                     until: untilDate,
                 });

@@ -6,7 +6,7 @@ export interface IMeet {
     day: number,
     startTime: number,
     endTime: number,
-    lecturers: string,
+    details: string,
     location: string,
     elements: HTMLDivElement[],
     export: boolean,
@@ -27,10 +27,10 @@ const getCourseElements = () => {
 export const getCourses : IGetCourse = () => {
     const elms = getCourseElements();
 
-    const courses = [];
+    const courses: ICourse[] = [];
     const coursesNamesToIndex = {};
 
-    elms.forEach((elm: HTMLElement) => {
+    elms.forEach((elm: HTMLDivElement) => {
         const rowIndex = (<HTMLTableRowElement>elm.parentElement.parentElement).rowIndex;
         const columnIndex = (<HTMLTableCellElement>elm.parentElement).cellIndex;
 
@@ -58,14 +58,18 @@ export const getCourses : IGetCourse = () => {
         const isContinueMeet = [lines[0], lines[1]].some(line => line.indexOf(CONTINUE_TEXT) !== -1);
         if (!isContinueMeet) {
             const meetType = textToEMeet[lines[1]];
+            const otherLines = lines.filter((_, index) => [0, 1].indexOf(index) === -1);
+            const locationIndex = otherLines.findIndex(line => line.match(/[0-9]/));
+            const location = otherLines[locationIndex];
+            const detailsLines = otherLines.filter((_, index) => index !== locationIndex);
 
             course.meets.push({
                 type: meetType,
-                day,
+                day: day,
                 startTime,
                 endTime,
-                lecturers: lines[2],
-                location: lines[3],
+                details: detailsLines.filter(line => line.length > 0).join('\\n'),
+                location,
                 elements: [elm],
                 export: true,
             });
