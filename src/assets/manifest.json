@@ -10,7 +10,10 @@
     "web_accessible_resources": ["github.svg"],
     "content_scripts": [
         {
-            "matches": ["https://inbar.biu.ac.il/Live/StudentMatrixPeriodSchedule.aspx"],
+            "matches": [
+                "https://inbar.biu.ac.il/Live/StudentMatrixPeriodSchedule.aspx",
+                "https://inbar.biu.ac.il/live/StudentMatrixPeriodSchedule.aspx"
+            ],
             "js": ["index.js"],
             "css": ["main.css"]
         }
