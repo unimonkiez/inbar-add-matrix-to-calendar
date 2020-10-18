@@ -1,0 +1,36 @@
+name: Chrome extension
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Typecheck
+        run: npm run typecheck
+
+  build-and-deploy:
+    needs: [test]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: npm run build
+      - name: Zip
+        run: |
+          zip -r ./extension.zip dist/
+      - name: Deploy to chrome store
+        uses: Klemensas/chrome-extension-upload-action@$1.4.1
+        with:
+            refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+            client-id: ${{ secrets.CHROME_CLIENT_ID }}
+            client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+            app-id: ${{ secrets.CHROME_APP_ID }}
+            file-name: './extension.zip'
+            publish: true

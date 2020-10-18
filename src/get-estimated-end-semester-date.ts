@@ -16,6 +16,9 @@ export const getEstimatedEndSemesterDate = (onChange) => {
                 month = 9;
                 break;
         }
+        if (date.getMonth() >= month) {
+            date.setFullYear(date.getFullYear() + 1);
+        }
         date.setMonth(month);
         return date;
     };
