@@ -8,7 +8,7 @@
     "build:watch": "rollup -c --watch",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "sed 's#\\(\"version\":\\).*,#\\1 '$(grep -m1 -r \"version\" ./package.json | sed 's/.*: //1')'#1' ./src/assets/manifest.json > ./src/assets/manifest-temp.json && rm ./src/assets/manifest.json && mv ./src/assets/manifest-temp.json ./src/assets/manifest.json && git add ./src/assets/manifest.json && git commit --amend --no-edit"
+    "postversion": "sed 's#\\(\"version\":\\).*,#\\1 '$(grep -m1 -r \"version\" ./package.json | sed 's/.*: //1')'#1' ./src/assets/manifest.json > ./src/assets/manifest-temp.json && rm ./src/assets/manifest.json && mv ./src/assets/manifest-temp.json ./src/assets/manifest.json && git add ./src/assets/manifest.json && git commit --amend --no-edit && git tag -f $(git describe --tags $(git rev-list --tags --max-count=1))"
   },
   "repository": {
     "type": "git",
