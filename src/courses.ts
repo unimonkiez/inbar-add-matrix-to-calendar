@@ -1,5 +1,6 @@
 import { CONTINUE_TEXT } from './constants';
 import { textToEMeet, eMeet, eSelectPick } from './enums';
+import { getFirstHourOfMatrix } from './get-first-hour-of-matrix';
 
 export interface IMeet {
     type: eMeet,
@@ -29,6 +30,7 @@ export const getCourses : IGetCourse = () => {
 
     const courses: ICourse[] = [];
     const coursesNamesToIndex = {};
+    const firstHourOfMatrix = getFirstHourOfMatrix();
 
     elms.forEach((elm: HTMLDivElement) => {
         const rowIndex = (<HTMLTableRowElement>elm.parentElement.parentElement).rowIndex;
@@ -53,8 +55,8 @@ export const getCourses : IGetCourse = () => {
 
         const course = courses[index];
         const day = columnIndex - 1;
-        const startTime = rowIndex + 7;
-        const endTime = rowIndex + 8;
+        const startTime = rowIndex + (firstHourOfMatrix - 1);
+        const endTime = rowIndex + firstHourOfMatrix;
         const isContinueMeet = [lines[0], lines[1]].some(line => line.indexOf(CONTINUE_TEXT) !== -1);
         if (!isContinueMeet) {
             const meetType = textToEMeet[lines[1]];
